@@ -15,9 +15,7 @@
 
 ## What This Repo Is
 
-A working portfolio that maps my governance experience directly to the four pillars of this role. Each folder contains frameworks, case playbooks, and decision standards I've designed and operated — adapted to TikTok's advertiser risk surface.
-
-**This is not a resume supplement. It's a demonstration of how I think and work.**
+A working governance portfolio — not a resume supplement. Every document in this repo demonstrates how governance work gets designed and operationalized — policy frameworks, enforcement SOPs, case playbooks, audit methodology, and KPI definitions.
 
 ---
 
