@@ -17,6 +17,8 @@
 
 A working governance portfolio — not a resume supplement. Every document in this repo demonstrates how governance work gets designed and operationalized — policy frameworks, enforcement SOPs, case playbooks, audit methodology, and KPI definitions.
 
+The content maps directly to the four pillars of the Risk Governance Policy Specialist role at TikTok Business Integrity — translated to the advertiser risk surface: ATO, impersonation, bad debt, policy circumvention, and fraudulent ad content.
+
 ---
 
 ## Role ↔ Experience Mapping
