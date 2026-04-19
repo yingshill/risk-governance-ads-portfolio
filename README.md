@@ -21,33 +21,40 @@ The content maps directly to the four pillars of the Risk Governance Policy Spec
 
 ---
 
-## Role ↔ Experience Mapping
+## JD → Experience Mapping
 
-| JD Responsibility                           | My Experience                                                                                              | Folder                       |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Own Actor Suspension policy framework       | Designed Safety OS Unified Policy at Moody's — evidence chain standards across 100% of sanctions decisions | [`/frameworks`](/frameworks) |
-| Build operationally actionable standards    | Wrote tiered enforcement SOP at Flip — canary rollout gates, incident response, escalation paths           | [`/frameworks`](/frameworks) |
-| Edge case reviews → policy clarification    | Found 15% of false positives traced to a single viral challenge via confusion matrix slice analysis        | [`/cases`](/cases)           |
-| Calibration and enablement across reviewers | Built Safety Index System — 500-case blind audits tracking Precision/Recall/F1 by reviewer and region      | [`/metrics`](/metrics)       |
+| JD Responsibility                                                                                         | Approach                                                                                                                     | Where                        |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| Own the Actor Suspension policy framework — scope, definitions, enforcement criteria                      | Evidence chain standards governing sanctions decisions, designed to survive regulatory audit                                 | [`/frameworks`](frameworks/) |
+| Build operationally actionable standards — evidence requirements, decision guidelines, write-up standards | Tiered enforcement SOP: HITL→HOOL routing, canary-to-GA rollout gates, P0 incident response                                  | [`/frameworks`](frameworks/) |
+| Edge case reviews → codify into policy clarifications and decision trees                                  | Confusion matrix slice analysis surfacing hidden false positive clusters; packaged into policy exception + retraining signal | [`/cases`](cases/)           |
+| Calibration and enablement to reduce inconsistency across reviewers and regions                           | 500-case blind audits tracking Precision/Recall/F1 by reviewer, region, and content category                                 | [`/metrics`](metrics/)       |
 
 ---
 
-## Three-Layer Governance Model
+## Governance Model
 
-Everything in this repo operates within this framework:
+Everything in this repo operates within a three-layer framework. Understanding how the layers connect is prerequisite to reading any individual document.
 
-```
-A — Actor Lifecycle        WHAT you govern
-   Onboarding → Monitoring → Enforcement → Appeal
+┌─────────────────────────────────────────────────────────────────┐
+│ A — ACTOR LIFECYCLE WHAT you govern │
+│ Onboarding → Monitoring → Enforcement → Appeal │
+├─────────────────────────────────────────────────────────────────┤
+│ B — OPS STACK HOW you govern │
+│ Policy · SOP Design · Process Health Metrics · Feedback │
+├─────────────────────────────────────────────────────────────────┤
+│ C — 7-STEP PROCESS ENGINE WHEN you govern │
+│ Detection → Triage → Evidence Chain → Decision → │
+│ Action → Appeal → Postmortem │
+└─────────────────────────────────────────────────────────────────┘
 
-B — Ops Stack              HOW you govern
-   Policy · SOP Design · Process Health Metrics · Feedback Loops
+**How they connect:**
 
-C — 7-Step Process Engine  WHEN you govern
-   Detection → Triage → Evidence Chain → Decision → Action → Appeal → Postmortem
-```
+- Layer A defines the lifecycle stages that trigger Layer C process instances
+- Layer B (ops stack) powers every step of Layer C
+- The **feedback loop** ties all three: every postmortem → policy update → SOP revision → raises the bar for the next detection cycle
 
-> The feedback loop ties all three: every postmortem improves the policy → tightens the SOP → raises the bar for the next detection cycle.
+> See [`docs/governance-frameworks-map.md`](docs/governance-frameworks-map.md) for how this maps to Three Lines Model, NIST AI RMF, PDCA, DMAIC, and ITIL.
 
 ---
 
