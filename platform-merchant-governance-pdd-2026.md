@@ -271,6 +271,46 @@ rather than generated internally [^2].
 > that did not exist. This is a Layer B (Ops Stack) failure that
 > cascaded into every Layer C (Process) step.
 
+### Higher-Level Analysis — What Actually Failed
+
+Before examining operational steps, the more fundamental question is:
+**why did no governance mechanism exist to evaluate the 转单 API
+authorization in the first place?**
+
+The 转单 system was not a rogue behavior that slipped past controls.
+It was a deliberate product decision — platforms signed cooperation
+agreements, granted API permissions, and integrated third-party
+service providers into their order fulfillment infrastructure.
+The failure was not operational. It was architectural.
+
+Three things were missing at the governance design level:
+
+**1. No policy classifying third-party API access as a risk decision**
+Granting a third-party system access to order data, logistics dispatch,
+and batch decryption should have been treated as a governance event —
+not a routine product integration. No policy existed that required
+a risk review before authorizing fulfillment-touching API access.
+
+**2. No ownership of platform-enabled risk**
+Standard governance frameworks distinguish between risks the platform
+faces and risks the platform creates. The 转单 system is the second
+type — the platform was not a victim of a bad actor; it was the
+infrastructure provider for one. No governance function owned this
+category of risk.
+
+**3. No audit trail requirement for strategic decisions**
+The evidence chain standard in this repo requires that every
+enforcement action be reconstructable end-to-end. The same logic
+applies upstream: every strategic decision that could enable harm
+at scale should be documented, reasoned, and reviewable. None of
+the platforms had this.
+
+> The 7-step engine is designed to catch risk events after they
+> surface. It cannot catch a risk that the platform's own product
+> decisions made invisible. That requires governance one layer up —
+> at the policy and architecture level — before any operational
+> process can apply.
+
 ---
 
 ## 4. Policy Gaps Identified
