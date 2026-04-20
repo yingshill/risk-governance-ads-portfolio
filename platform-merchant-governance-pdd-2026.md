@@ -429,7 +429,7 @@ frameworks were designed to manage risk from external actors —
 merchants, users, third parties — but had no mechanism to govern
 risk created by the platform's own decisions.**
 
-Three structural policy failures underlie all five gaps:
+Four structural failures underlie all five gaps:
 
 **Inward governance blind spot**
 Policy frameworks defined what merchants could and could not do.
@@ -452,8 +452,37 @@ absence of any mechanism to verify that processes produced real
 outcomes. Form without function is not governance; it is liability
 management.
 
+**Org design failure — the Three Lines Model was not applied**
+In a well-governed platform, the Three Lines Model defines clear
+accountability for decisions that touch platform integrity:
+
+```
+1st Line — Product & Engineering
+  Makes the product decision (e.g., API access grant to 转单 platform)
+  Owns the operational risk day-to-day
+
+2nd Line — Governance / Policy / Risk
+  Defines the standard: which product decisions require a risk
+  review gate before authorization?
+  Has authority to block or condition decisions that cross
+  integrity thresholds
+
+3rd Line — Internal Audit
+  Independently validates that 2nd line standards are enforced
+  and that 1st line decisions are documented and reconstructable
+```
+
+In the PDD case, Product made the API authorization decision
+unilaterally. No second-line governance function had authority
+over product decisions touching platform integrity — or if it
+did, it had no mechanism to enforce that authority. The result:
+a product integration that processed over 3.6 million fraudulent
+orders [^2] was never reviewed as a governance event.
+
 > A governance framework that only looks outward will always be
-> surprised by the risks it built inward.
+> surprised by the risks it built inward. The Three Lines Model
+> exists precisely to prevent 1st-line decisions from creating
+> 2nd-line blind spots.
 
 ---
 
