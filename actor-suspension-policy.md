@@ -24,6 +24,10 @@
 | **Policy Circumvention**   | Intentional evasion of enforcement — new accounts, cloaking, referral chains | Multi-account linkage + prior violation history      |
 | **Fraudulent Ad Content**  | Misleading claims, prohibited categories, deceptive landing pages            | Pre/post-serve content flags + landing page mismatch |
 
+| **Fraudulent Ad Content** | Misleading claims, prohibited categories, deceptive landing pages | Pre/post-serve content flags + landing page mismatch |
+
+> Primary signals listed above are indicative examples — actual signal combinations depend on platform detection capabilities and should be validated operationally.
+
 ---
 
 ## 2. Evidence Chain Standards
