@@ -1,4 +1,5 @@
-# ROADMAP.md
+# Roadmap
+
 **Portfolio Build Tracker — Risk Governance Portfolio**
 
 > **Working principle:** Ship in dependency order. The README is the front door — everything else references it. Content must be locked before the HTML page. Human refinement happens in framework → case → metrics → docs order because cases cite frameworks, and metrics cite both.
@@ -11,28 +12,27 @@
 
 Get the repo readable and navigable before touching content.
 
-- [ ] **README — render pass**
-  - Fix any broken relative links (GitHub renders differently than local)
-  - Add badges: repo status, file count, last updated
-  - Add a visual diagram of the Three-Layer Governance Model (ASCII → Mermaid or inline SVG)
-  - Tighten the opening — make the first 3 lines do more work
-  - Verify the JD ↔ Experience mapping table renders cleanly on GitHub
-  - *Dependency: none — start here*
+- [x] **README — render pass** ✅ _April 2026_
+  - Philosophy quote moved to top — first thing reader sees
+  - Identity-neutral — no personal names anywhere
+  - Badges added: status, file count, language, updated date
+  - Three-Layer model rebuilt as Mermaid diagram with feedback loop arrow
+  - JD mapping table: identity-neutral columns, GitHub-compatible links
+  - Flat repo tree replaced with per-folder tables with file-level descriptions
+  - Build Status checklist added at the bottom
 
-- [ ] **CONTRIBUTING.md — methodology explainer**
-  - Why this repo exists and how to read it
-  - The methodology behind each document type (policy vs. SOP vs. case playbook vs. metric definition)
+- [x] **CONTRIBUTING.md — methodology explainer** ✅ _April 2026_
+  - Tone & Voice section added: straightforward, humble, accurate, curious, practical
+  - Per-document-type reading guide (policy, SOP, process engine, case playbook, metrics, ref docs)
   - How the Three-Layer framework connects every file
-  - How the 7-step process engine appears across all case playbooks
-  - Evidence chain standard: why every claim needs a traceable source
-  - What "durable fix" means and why it appears everywhere
-  - *Dependency: README pass complete — CONTRIBUTING references the same framework*
+  - Precise definition of "durable fix"
+  - Build protocol: structured drafts → repo owner review in dependency order
 
 ---
 
-### Phase 2 — Human Refinement ✦ Backlog
+### Phase 2 — Refinement ✦ Backlog
 
-Each file reviewed, corrected, and sharpened by Yingshi. AI-generated content is a first draft — human judgment is the governance layer.
+Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts are starting points — accuracy and credibility come from review.
 
 **Refinement order follows dependency chain:**
 
@@ -121,37 +121,37 @@ Repo is locked. Build the public-facing layer.
   - Designed to be shared as a link — readable by Kai without needing to navigate GitHub
   - Sections: intro + philosophy · JD mapping · Three-layer framework visual · 5 risk cases summary · metrics methodology · quick links to repo
   - Mobile-readable (Kai may open this on a phone before the interview)
-  - *Dependency: all Phase 2 refinements complete — HTML content mirrors locked repo content*
+  - _Dependency: all Phase 2 refinements complete — HTML content mirrors locked repo content_
 
 - [ ] **GitHub Pages enable**
   - Point to the HTML page as the repo's `index.html`
   - Verify all repo links work from the rendered page
-  - *Dependency: HTML page complete*
+  - _Dependency: HTML page complete_
 
 ---
 
 ## Status Legend
 
-| Symbol | Meaning |
-|---|---|
-| ✦ In Progress | Active phase |
-| ✦ Backlog | Queued; not started |
-| ✅ Done | Complete; no further changes expected |
-| 🔄 Needs revisit | Done but flagged for another pass |
+| Symbol           | Meaning                               |
+| ---------------- | ------------------------------------- |
+| ✦ In Progress    | Active phase                          |
+| ✦ Backlog        | Queued; not started                   |
+| ✅ Done          | Complete; no further changes expected |
+| 🔄 Needs revisit | Done but flagged for another pass     |
 
 ---
 
 ## Decisions Log
 
-*Record any non-obvious choices made during the build so future sessions have context.*
+_Record any non-obvious choices made during the build so future sessions have context._
 
-| Date | Decision | Rationale |
-|---|---|---|
-| Apr 2026 | Build order: README → CONTRIBUTING → frameworks → cases → metrics → docs → HTML | Dependency chain — downstream files reference upstream ones |
-| Apr 2026 | 14 files in one initial commit | Establish full skeleton first; refine in subsequent passes rather than building file-by-file |
-| Apr 2026 | Confidence thresholds: 0.75 / 0.98 for HITL/HOTL/HOOL | Illustrative; flagged for human validation in Phase 2 |
-| Apr 2026 | 500-case blind audit as the quality anchor metric | Mirrors Moody's Safety Index methodology; scales to TikTok context |
+| Date     | Decision                                                                        | Rationale                                                                                    |
+| -------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Apr 2026 | Build order: README → CONTRIBUTING → frameworks → cases → metrics → docs → HTML | Dependency chain — downstream files reference upstream ones                                  |
+| Apr 2026 | 14 files in one initial commit                                                  | Establish full skeleton first; refine in subsequent passes rather than building file-by-file |
+| Apr 2026 | Confidence thresholds: 0.75 / 0.98 for HITL/HOTL/HOOL                           | Illustrative; flagged for human validation in Phase 2                                        |
+| Apr 2026 | 500-case blind audit as the quality anchor metric                               | Mirrors Moody's Safety Index methodology; scales to TikTok context                           |
 
 ---
 
-*Last updated: April 2026 · Next action: README render pass (Phase 1)*
+_Last updated: April 2026 · Next action: README render pass (Phase 1)_
