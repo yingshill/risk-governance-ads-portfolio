@@ -46,11 +46,11 @@ Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts
   - Added threshold disclaimer to consequence framework
   - Flagged appeal SLA as proposed values
 
-- [ ] `frameworks/tiered-enforcement-sop.md`
-  - Validate HITL/HOTL/HOOL confidence thresholds (0.75 / 0.98) — are these defensible?
-  - Refine the P0 incident response timeline based on real operational experience
-  - Add anything the canary rollout section is missing from Flip experience
-  - Check the calibration session design against what actually works
+- [x] `frameworks/tiered-enforcement-sop.md` ✅ _April 2026_
+  - Validated HITL/HOTL/HOOL confidence thresholds (0.75 / 0.98) — are these defensible?
+  - Refined the P0 incident response timeline based on real operational experience
+  - Added anything the canary rollout section is missing from Flip experience
+  - Checked the calibration session design against what actually works
 
 - [ ] `frameworks/7-step-process-engine.md`
   - This is the most conceptual file — review for any gaps vs. how you'd actually run this
