@@ -79,24 +79,6 @@ representatives and food safety directors fined an additional
 
 ---
 
-### References
-
-[^1]:
-    Tencent News / 金通社PLUS, "拼多多暴力抗法被罚15亿，联合创始人赵佳臻被罚693万",
-    April 18, 2026. https://news.qq.com/rain/a/20260418A053II00
-
-[^2]:
-    新京报 (Beijing News), "责任不能'转单' 安全不容'造假'——市场监管总局重拳整治
-    '幽灵外卖'乱象纪实", April 20, 2026.
-    https://www.bjnews.com.cn/detail/1776682567129945.html
-
-[^3]:
-    SAMR Administrative Penalty Decision 国市监处罚〔2026〕10号,
-    北京抖音科技有限公司, April 17, 2026. Via Sina Finance:
-    https://finance.sina.cn/2026-04-17/detail-inhuvera3179333.d.html
-
----
-
 ## 2. Governance Failure Taxonomy
 
 ### Scope Mapping
@@ -164,21 +146,130 @@ Section 7 maps each failure to its TikTok Ads analog explicitly.
 
 ---
 
-### References
+## 3. How the 7-Step Process Engine Should Have Caught This
 
-[^2]:
-    新京报 (Beijing News), "责任不能'转单' 安全不容'造假'", April 20, 2026.
-    https://www.bjnews.com.cn/detail/1776682567129945.html
-
-[^3]:
-    SAMR Administrative Penalty Decision 国市监处罚〔2026〕10号, April 17, 2026.
-    https://finance.sina.cn/2026-04-17/detail-inhuvera3179333.d.html
+This section walks the case through the 7-step process engine defined in
+[`7-step-process-engine.md`](../frameworks/7-step-process-engine.md) —
+identifying where each step failed or did not exist.
 
 ---
 
-## 3. How the 7-Step Process Engine Should Have Caught This
+**Step 1 — Detection 检测 · FAILED**
 
-<!-- PENDING -->
+The 转单 system operated through platform-authorized API access. Because
+the platform itself granted the access, the behavior was invisible to any
+detection layer that treated platform-authorized actions as trusted. No
+signal was ever generated.
+
+- What should have existed: a detection rule flagging API access grants
+  to third-party service providers that touch order fulfillment data —
+  treated as a high-risk permission requiring governance review
+- What existed instead: nothing — the API grant was a product decision
+  with no risk review gate
+
+---
+
+**Step 2 — Triage 分诊 · NOT REACHED**
+
+No signal surfaced from Step 1, so triage never fired. The case was
+eventually opened not from internal detection but from a single consumer
+complaint filed with a local regulator in July 2025 — over a cake with
+fresh flowers [^2].
+
+- What should have existed: a triage escalation path for consumer
+  complaints that cross-references platform API access grants
+- What existed instead: the complaint was handled locally until
+  investigators discovered the systemic pattern
+
+---
+
+**Step 3 — Evidence Chain Assembly 证据链 · FAILED WHEN ATTEMPTED**
+
+When regulators attempted to assemble an evidence chain, platforms
+actively obstructed access. PDD refused to provide materials, submitted
+false information, and physically resisted investigators. Investigators
+had to build custom data models to penetrate platform data architecture
+and extract order flow records [^2].
+
+- What should have existed: an internal audit trail reconstructable
+  by any independent reviewer from raw data — the standard defined
+  in [`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md) §2
+- What existed instead: encrypted, fragmented, and in some cases
+  falsified records
+
+---
+
+**Step 4 — Decision 研判 · NOT REACHED INTERNALLY**
+
+No internal decision was ever made to investigate or act on the 转单
+system. The decision to act came entirely from external regulators,
+not from any internal governance process.
+
+- What should have existed: a policy that classified API access
+  grants to fulfillment-touching third parties as a governance
+  decision requiring evidence review and sign-off
+- What existed instead: the API grant was treated as a routine
+  product integration
+
+---
+
+**Step 5 — Action 处置 · NOT REACHED INTERNALLY**
+
+No internal enforcement action was taken. Platforms only acted after
+receiving formal administrative penalty decisions in April 2026 —
+approximately 9 months after the initial consumer complaint [^2].
+
+- What should have existed: a self-correction mechanism triggered
+  by detection of unauthorized fulfillment transfers
+- What existed instead: public statements of acceptance after
+  the penalty was issued
+
+---
+
+**Step 6 — Appeal 申诉 · PARTIALLY USED**
+
+Douyin did not file a written defense or request a hearing within
+the statutory period [^3]. PDD accepted the penalty publicly.
+No platforms successfully challenged the core findings.
+
+- What this signals: the evidence assembled by regulators — despite
+  obstruction — was sufficient to withstand challenge
+- Governance implication: had platforms maintained audit-defensible
+  internal records, they may have had grounds to dispute findings;
+  instead obstruction foreclosed that option
+
+---
+
+**Step 7 — Postmortem 复盘 · EXTERNALLY FORCED**
+
+The postmortem in this case was conducted by regulators, not by
+the platforms. The durable fix — policy clarification, enforcement
+standard, personal liability precedent — was imposed externally
+rather than generated internally [^2].
+
+- What should have existed: an internal postmortem cycle that
+  identified the 转单 API risk before regulators did
+- What existed instead: a reactive public statement after the
+  penalty landed
+
+---
+
+### Summary — Where the Engine Broke
+
+| Step               | Status                 | Root Failure                                                 |
+| ------------------ | ---------------------- | ------------------------------------------------------------ |
+| 1 — Detection      | Failed                 | No risk signal for platform-authorized API grants            |
+| 2 — Triage         | Not reached            | Detection never fired                                        |
+| 3 — Evidence Chain | Failed when attempted  | No audit-defensible internal records                         |
+| 4 — Decision       | Not reached internally | No internal policy classifying API grants as governance risk |
+| 5 — Action         | Not reached internally | No self-correction mechanism                                 |
+| 6 — Appeal         | Partially used         | Obstruction foreclosed challenge options                     |
+| 7 — Postmortem     | Externally forced      | No internal feedback loop existed                            |
+
+> The engine did not fail at one step — it was never installed.
+> Detection, triage, and decision all required a policy foundation
+> that did not exist. This is a Layer B (Ops Stack) failure that
+> cascaded into every Layer C (Process) step.
 
 ---
 
