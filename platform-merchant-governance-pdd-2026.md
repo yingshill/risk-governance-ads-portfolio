@@ -488,7 +488,183 @@ orders [^2] was never reviewed as a governance event.
 
 ## 5. Durable Fix Recommendations
 
-<!-- PENDING -->
+Each recommendation below addresses a specific policy gap from
+Section 4 and is anchored to the governance frameworks in this repo.
+These are proposed governance directions — not prescriptive
+implementations, as actual design depends on platform context.
+
+---
+
+**Fix 1 — Extend KYC to Third-Party API Partners**
+
+_Addresses Gap 1 — No KYC standard for third-party API partners_
+
+Any third party granted API access to order data, payment data,
+or fulfillment infrastructure should be subject to a formal
+onboarding review equivalent to or stricter than merchant KYC.
+
+Governance design:
+
+- Define a "platform partner" actor type with its own risk taxonomy
+- Apply the same evidence tier framework to partner onboarding:
+  identity verification, business registry check, scope-of-access
+  review, and ongoing monitoring
+- API access grants become auditable events — logged with: who
+  authorized, what access was granted, what monitoring is in place,
+  and what the review standard was
+
+_Maps to:_ [`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md)
+§1 (Actor Definition) — extend covered actor scope
+
+---
+
+**Fix 2 — Pre-Authorization Risk Review Gate for Platform Capabilities**
+
+_Addresses Gap 2 — No risk classification for platform-authorized actions_
+
+Any product or engineering decision that grants third-party access
+to fulfillment, payment, or order infrastructure should require
+a documented risk review before authorization — not detection after.
+
+Governance design:
+
+- Define a "platform-enabled risk" classification — distinct from
+  actor-facing risk — with its own evidence standard and sign-off
+  requirement
+- Risk review gate: before any API access grant to a fulfillment-
+  touching third party, 2nd-line governance sign-off is required
+- The authorization decision itself enters the audit trail:
+  what was the risk assessed, by whom, under what standard
+
+_Maps to:_ [`tiered-enforcement-sop.md`](../frameworks/tiered-enforcement-sop.md)
+— canary rollout gate logic applied upstream to product decisions
+
+---
+
+**Fix 3 — Platform-Level Fulfillment Disclosure Standard**
+
+_Addresses Gap 3 — No disclosure standard for fulfillment chain changes_
+
+Any platform capability that permits order fulfillment to deviate
+from consumer selection must require explicit consumer disclosure
+at the point of transaction — enforced at the platform level.
+
+Governance design:
+
+- Define disclosure as a platform obligation, not a merchant option
+- Any API capability that touches fulfillment chain must include
+  a consumer-facing disclosure trigger as a product requirement
+- Non-disclosure becomes a detectable signal: if a transfer
+  occurred without disclosure, it is a Tier 1 violation by the
+  platform, not just the merchant
+
+---
+
+**Fix 4 — Audit Defensibility Standard for Operational Decisions**
+
+_Addresses Gap 4 — No audit defensibility requirement for internal records_
+
+Every operational decision that affects platform integrity must
+generate a documented, tamper-evident record reconstructable by
+an independent reviewer — applying the same standard as enforcement
+case files.
+
+Governance design:
+
+- Extend the evidence chain standard from enforcement decisions
+  to operational decisions: API grants, onboarding approvals,
+  service provider agreements
+- Records must be: timestamped, attributed to a named decision-
+  maker, and stored independently of the systems they govern
+- The test: could a third-line auditor reconstruct the decision
+  from raw records alone, without interviewing anyone?
+
+_Maps to:_ [`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md)
+§2 (Evidence Chain Standards) — apply upstream
+
+---
+
+**Fix 5 — Systemic Failure Escalation Threshold**
+
+_Addresses Gap 5 — No personal accountability trigger for systemic failures_
+
+Define a threshold at which systemic governance failures
+automatically escalate to executive review — not as punishment,
+but as a governance signal that the self-correction mechanism
+has broken down.
+
+Governance design:
+
+- Trigger conditions (proposed direction, not fixed values):
+  violations persisting beyond a defined window without internal
+  detection; harm scope exceeding a defined threshold; audit
+  findings that cannot be reconstructed from internal records
+- Escalation output: named executive accountable for the
+  governance gap, documented remediation plan, timeline for
+  verification
+- Personal accountability is not the goal — it is the signal
+  that governance has teeth
+
+_Maps to:_ [`docs/governance-frameworks-map.md`](../docs/governance-frameworks-map.md)
+— Three Lines Model, 2nd line authority over 1st line decisions
+
+---
+
+### Fix Summary
+
+| Fix                                               | Gap Addressed                           | Governance Layer       |
+| ------------------------------------------------- | --------------------------------------- | ---------------------- |
+| 1 — Extend KYC to API partners                    | No KYC for third-party access           | Layer A (Onboarding)   |
+| 2 — Pre-authorization risk review gate            | No platform-enabled risk classification | Layer B (Policy + SOP) |
+| 3 — Fulfillment disclosure standard               | No disclosure requirement               | Layer B (Policy)       |
+| 4 — Audit defensibility for operational decisions | No tamper-evident records               | Layer B (SOP Design)   |
+| 5 — Systemic failure escalation threshold         | No executive accountability trigger     | Layer B (Policy)       |
+
+> The common thread across all five fixes: governance must look
+> inward at platform decisions as rigorously as it looks outward
+> at actor behavior. The same evidence chain standard, the same
+> audit defensibility requirement, the same escalation logic —
+> applied to what the platform builds, not just what actors do.
+
+### Industry Context — Where These Fixes Already Exist
+
+> ⚠️ **Verification needed:** Claims below are based on general knowledge
+> of regulatory frameworks. Primary sources should be verified before
+> citing in any formal context. Placeholder links marked with `[VERIFY]`.
+
+These governance fixes are not theoretical — they are established
+practice in adjacent industries, though largely absent from
+e-commerce platforms to date.
+
+**Third-party API risk review (Fix 1 + 2)** is standard in financial
+services. Regulators including the OCC, FCA, and MAS require banks
+to conduct due diligence on third-party integrations that touch
+customer data or transaction infrastructure — with documented risk
+assessments and ongoing monitoring. TPRM (Third-Party Risk Management)
+is a mature discipline in this sector.
+`[VERIFY: OCC Third-Party Risk Management guidance — verify current version]`
+`[VERIFY: MAS Guidelines on Outsourcing — verify applicability to API access]`
+
+**Audit-defensible operational records (Fix 4)** is required under
+SEC, PCAOB, and SOX for material business decisions in public
+companies. The standard — tamper-evident, attributed, reconstructable
+— already exists. It has not been extended to platform product
+decisions in e-commerce.
+`[VERIFY: SOX Section 302/404 requirements — verify scope re: operational decisions]`
+
+**Personal accountability frameworks (Fix 5)** exist in financial
+services regulation — the UK's Senior Managers and Certification
+Regime (SM&CR), Singapore's MAS Guidelines on Individual
+Accountability, and the SEC's enforcement posture all establish
+personal liability for senior decision-makers. The SAMR action
+against PDD's co-CEO and Douyin's legal representative in April
+2026 marks the first application of this logic to Chinese
+e-commerce platform governance — a precedent, not an extension
+of existing norm. [^2]
+
+The gap is not knowledge — it is application. The frameworks exist.
+E-commerce platforms have not been required to adopt them.
+The April 2026 enforcement action suggests that is changing.
 
 ---
 
