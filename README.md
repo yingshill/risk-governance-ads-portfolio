@@ -36,17 +36,13 @@ The content maps directly to the four pillars of the Risk Governance Policy Spec
 
 Everything in this repo operates within a three-layer framework. Understanding how the layers connect is prerequisite to reading any individual document.
 
-┌─────────────────────────────────────────────────────────────────┐
-│ A — ACTOR LIFECYCLE WHAT you govern │
-│ Onboarding → Monitoring → Enforcement → Appeal │
-├─────────────────────────────────────────────────────────────────┤
-│ B — OPS STACK HOW you govern │
-│ Policy · SOP Design · Process Health Metrics · Feedback │
-├─────────────────────────────────────────────────────────────────┤
-│ C — 7-STEP PROCESS ENGINE WHEN you govern │
-│ Detection → Triage → Evidence Chain → Decision → │
-│ Action → Appeal → Postmortem │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    A["A — Actor Lifecycle (WHAT)\nOnboarding → Monitoring → Enforcement → Appeal"]
+    B["B — Ops Stack (HOW)\nPolicy · SOP Design · Metrics · Feedback Loops"]
+    C["C — 7-Step Process Engine (WHEN)\nDetection → Triage → Evidence Chain → Decision → Action → Appeal → Postmortem"]
+    A --> B --> C --> A
+```
 
 **How they connect:**
 
