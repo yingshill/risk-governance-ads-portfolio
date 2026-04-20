@@ -315,7 +315,145 @@ the platforms had this.
 
 ## 4. Policy Gaps Identified
 
-<!-- PENDING -->
+This section maps each governance failure to the specific policy
+standard that was missing or unenforced — anchored to the framework
+defined in [`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md).
+
+---
+
+**Gap 1 — No KYC Standard for Third-Party API Partners**
+
+The actor suspension policy defines KYC requirements for merchants
+entering the platform. It does not define equivalent requirements
+for **service providers granted API access to merchant data and
+order fulfillment infrastructure**.
+
+转单 platforms were onboarded as "service providers" — a category
+that existed outside the KYC framework entirely. Once inside,
+they had more operational access than any individual merchant.
+
+- **Policy that should exist:** Any third party granted API access
+  to order data, payment data, or fulfillment infrastructure should
+  be subject to the same or stricter KYC and ongoing monitoring
+  requirements as direct merchants
+- **Evidence chain implication:** API access grants should generate
+  an auditable record — who authorized it, what access was granted,
+  what monitoring is in place
+
+---
+
+**Gap 2 — No Risk Classification for Platform-Authorized Actions**
+
+The evidence tier framework (§2 of actor suspension policy) defines
+signals that trigger enforcement. All defined signals are behavioral
+anomalies — things actors do that deviate from expected patterns.
+
+Platform-authorized actions are structurally invisible to this
+framework. If the platform grants permission, the behavior is
+treated as compliant by definition — even if the permitted behavior
+enables harm at scale.
+
+- **Policy that should exist:** A separate risk classification for
+  "platform-enabled risk" — where the platform's own product or
+  policy decisions create the conditions for harm. These require
+  a governance review gate before authorization, not detection after
+- **Evidence chain implication:** The authorization decision itself
+  becomes part of the evidence chain — was the risk assessed?
+  By whom? Under what standard?
+
+---
+
+**Gap 3 — No Disclosure Standard for Fulfillment Chain Changes**
+
+Consumer-facing policy required merchants to fulfill orders as
+represented. No policy required the **platform** to disclose when
+it had authorized a system that structurally permitted silent
+order transfers.
+
+The gap is not just merchant disclosure — it is platform-level
+transparency about what its own infrastructure enables.
+
+- **Policy that should exist:** Any platform capability that allows
+  order fulfillment to deviate from consumer selection must require
+  explicit consumer disclosure at the point of transaction —
+  enforced at the platform level, not left to merchant discretion
+
+---
+
+**Gap 4 — No Audit Defensibility Requirement for Internal Records**
+
+The evidence chain standard requires that every enforcement action
+be reconstructable end-to-end from raw data alone. This repo applies
+that standard to enforcement decisions.
+
+The PDD case reveals the same standard must apply to **operational
+decisions** — API grants, merchant onboarding approvals, service
+provider agreements. When regulators requested records, platforms
+could not or would not produce them [^2].
+
+- **Policy that should exist:** Any operational decision that
+  affects platform integrity must generate a documented, tamper-
+  evident record reconstructable by an independent reviewer —
+  applying the same standard as enforcement case files
+
+---
+
+**Gap 5 — No Personal Accountability Trigger for Systemic Failures**
+
+The case resulted in the first-ever personal fines on platform legal
+representatives and food safety directors in this sector [^2].
+This precedent did not exist as a governance mechanism inside any
+of the platforms — there was no internal policy that escalated
+systemic integrity failures to executive accountability.
+
+- **Policy that should exist:** A defined threshold at which systemic
+  governance failures — measured by scope, duration, and harm —
+  automatically escalate to executive review and documented
+  accountability. Not as a punitive mechanism, but as a governance
+  signal that the system is not self-correcting
+
+---
+
+### Gap Summary
+
+| Gap                                               | Missing Policy                                                          | Layer                |
+| ------------------------------------------------- | ----------------------------------------------------------------------- | -------------------- |
+| 1 — API partner KYC                               | Third-party access subject to same KYC standard as merchants            | Layer A (Onboarding) |
+| 2 — Platform-enabled risk classification          | Governance review gate before authorizing risk-enabling capabilities    | Layer B (Policy)     |
+| 3 — Fulfillment disclosure standard               | Platform-level transparency requirement for infrastructure capabilities | Layer B (Policy)     |
+| 4 — Audit defensibility for operational decisions | Tamper-evident records for all integrity-affecting decisions            | Layer B (SOP Design) |
+| 5 — Personal accountability trigger               | Escalation threshold for systemic failures to executive review          | Layer B (Policy)     |
+
+The five gaps above share a common thread: **platform governance
+frameworks were designed to manage risk from external actors —
+merchants, users, third parties — but had no mechanism to govern
+risk created by the platform's own decisions.**
+
+Three structural policy failures underlie all five gaps:
+
+**Inward governance blind spot**
+Policy frameworks defined what merchants could and could not do.
+They did not define what the platform itself could and could not
+authorize. When the platform became the source of risk — through
+API grants, onboarding shortcuts, and infrastructure design —
+no policy applied.
+
+**Absence of pre-authorization review**
+Governance was designed to detect and respond after harm occurred.
+No policy required a risk assessment before a consequential decision
+— API access grant, service provider agreement, fulfillment
+capability launch — was made. Detection cannot catch what policy
+pre-authorized.
+
+**Compliance theater over governance substance**
+KYC processes existed on paper. Audit mechanisms existed on paper.
+The gap was not the absence of process documentation — it was the
+absence of any mechanism to verify that processes produced real
+outcomes. Form without function is not governance; it is liability
+management.
+
+> A governance framework that only looks outward will always be
+> surprised by the risks it built inward.
 
 ---
 
