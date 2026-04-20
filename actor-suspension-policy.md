@@ -69,6 +69,8 @@ For every enforcement action, the case file must contain:
 
 **Design principle:** Consequences must be proportionate to evidence strength and actor history. Escalation paths are one-directional without new evidence.
 
+> Specific thresholds (LTV cutoffs, appeal windows, cooling periods) below are proposed values — need verified against production standards.
+
 ```
 LEVEL 0 — Monitor
   Trigger: Indicative signals only (Tier 3)
