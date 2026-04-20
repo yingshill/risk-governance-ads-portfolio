@@ -59,7 +59,7 @@ For every enforcement action, the case file must contain:
 
 1. **Signal log:** Timestamped list of all signals, tier classification, data source
 2. **Linkage map:** Any cross-account or cross-entity connections identified
-3. **Confidence score:** ML model output + human reviewer override (if applicable)
+3. **Confidence score:** ML model output where available + human reviewer assessment and override rationale
 4. **Decision rationale:** Plain-language summary sufficient for appeal reviewer with no prior case context
 5. **Reviewer ID + timestamp:** Who decided, when, under which policy version
 
