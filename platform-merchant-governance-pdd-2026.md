@@ -773,7 +773,181 @@ governance best practice.
 
 ## 7. Relevance to TikTok Ads Context
 
-<!-- PENDING -->
+This section maps PDD's governance failures to TikTok's advertiser
+risk surface — using TikTok's own published policy and technical
+documentation to assess where controls exist and where gaps remain.
+
+> ⚠️ **Scope boundary:** The PDD case is a merchant/food delivery
+> integrity failure. TikTok Ads operates a distinct advertiser
+> integrity surface. The translation is analytical — not a claim
+> that TikTok has the same violations. It is a question of whether
+> the same governance architecture gaps exist.
+
+---
+
+### What TikTok Has — Confirmed Controls
+
+**Tiered enforcement with point-based escalation**
+TikTok Shop operates an Account Health Rating (AHR) system with
+defined escalation thresholds — enforcement actions trigger at
+150, 100, 50, and 0 AHR points. Sellers can appeal within 30 days,
+with a two-appeal limit per violation. [^4]
+
+**API access is revocable**
+TikTok's Seller Terms of Service explicitly state that API access
+is a "non-exclusive, non-transferable, non-sublicensable, limited,
+revocable license." TikTok can terminate access unilaterally if
+it determines a violation has occurred. [^5]
+
+**Business Center role-based access control**
+TikTok Business Center operates a structured permission model —
+Admin, Standard, Finance Analyst, Finance Manager — with admins
+controlling what accounts and assets each member can access.
+The principle of minimum access is built into the role structure:
+Standard members can only access accounts explicitly assigned
+to them. [^6]
+
+**API access requires application review**
+Unaudited apps operate in a restricted environment — user caps,
+limited posting modes. Full API access requires passing a review
+process. `[VERIFY: confirm DSPR review requirements against
+TikTok Shop Partner Center documentation]` [^7]
+
+**Data sharing obligations on partners**
+TikTok's Data Sharing Agreement requires partners to immediately
+inform TikTok if they can no longer meet security obligations,
+and grants TikTok the right to stop unauthorized data use.
+`[VERIFY: confirm current Data Sharing Agreement terms]`
+
+---
+
+### Where the Gaps Remain — The PDD Lens
+
+**Gap 1 — No pre-authorization risk review for API access grants**
+
+TikTok's Business Center allows admins to grant broad access —
+including Admin-level permissions over ad accounts, finances,
+and campaign management — to any member or partner. [^6]
+
+The PDD analog: 转单 platforms were granted API access as
+"service providers" with no risk review gate. In TikTok Ads,
+a Business Center Admin can grant an agency or third-party
+partner full operator access to multiple advertiser accounts
+without a documented governance review.
+
+- **What exists:** Access is technically revocable after the fact
+- **What is missing:** A pre-authorization standard requiring
+  documented risk assessment before granting high-privilege
+  API access to third parties touching advertiser data or spend
+
+**Gap 2 — API access grants are not auditable governance events**
+
+TikTok Business Center documents how to grant access [^6] but
+does not define what audit trail is generated when access is
+granted — who authorized it, under what standard, and what
+monitoring is in place post-grant.
+
+The PDD analog: platforms authorized 转单 API access with no
+auditable record of the decision. When regulators asked for
+records, none existed.
+
+- **What exists:** Access logs exist at a technical level
+- **What is missing:** A governance-layer audit trail — named
+  decision-maker, risk standard applied, post-grant monitoring
+  commitment — reconstructable by an independent reviewer
+
+**Gap 3 — No platform-enabled risk classification**
+
+TikTok's enforcement framework classifies what actors do wrong
+— policy violations, content violations, AHR deductions. [^4]
+It does not appear to classify what the platform's own product
+decisions enable — a distinct risk category the PDD case makes
+visible.
+
+- **What exists:** Actor-facing enforcement is well-documented
+- **What is missing:** A governance classification for
+  "platform-enabled risk" — where TikTok's own API grants,
+  Business Center permissions, or product integrations create
+  the conditions for advertiser harm at scale
+
+**Gap 4 — No personal accountability escalation threshold**
+
+TikTok's enforcement framework escalates account-level
+consequences as AHR drops. [^4] No published framework defines
+at what point systemic governance failures escalate to named
+executive accountability — the mechanism SAMR applied to PDD's
+co-CEO and Douyin's legal representative.
+
+- **What exists:** Platform-level enforcement escalation
+- **What is missing:** An internal threshold at which systemic
+  integrity failures trigger named executive review and
+  documented accountability
+
+---
+
+### The "One Advertiser, One Penalty" Risk — Applied to TikTok Ads
+
+The SAMR enforcement logic is portable. If a regulator applied
+"one advertiser, one penalty" logic to TikTok Ads:
+
+- Each advertiser onboarded without substantive KYC verification
+  → independent violation
+- Each API access grant enabling a suspended advertiser to
+  re-enter through a Business Center proxy → independent
+  circumvention event
+- Each automated enforcement action not reconstructable from
+  raw data → independent audit failure
+
+Platform liability scales with platform decisions. The governance
+implication: systematic KYC shortcuts or unaudited API access
+grants are not fixed-cost risks — they scale with the advertiser
+base they were applied to.
+
+---
+
+### What This Suggests for the Governance Framework in This Repo
+
+Three targeted additions the PDD case argues for:
+
+**1. Extend actor definition to platform-authorized partners**
+[`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md)
+§1 covers advertisers, agencies, managed accounts, and Business
+Center operators. It should explicitly address third parties
+granted API access to advertiser data or campaign infrastructure
+— as a distinct actor type with their own KYC and monitoring
+requirements.
+
+**2. Add platform authorization decisions as detection signals**
+[`7-step-process-engine.md`](../frameworks/7-step-process-engine.md)
+Step 1 (Detection) defines signals from actor behavior. The PDD
+case argues for a parallel signal class: platform authorization
+decisions — any API access grant touching advertiser spend,
+creative, or data should generate an auditable governance event,
+not just a technical access log.
+
+**3. Apply the evidence chain standard upstream**
+The audit defensibility standard in
+[`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md)
+§2 applies to enforcement decisions. It should apply equally
+to operational decisions — onboarding approvals, API access
+grants, Business Center permission changes — with the same
+reconstructability requirement.
+
+---
+
+### Closing Note
+
+TikTok has more governance infrastructure than the PDD platforms
+did at the time of violation — tiered enforcement, revocable API
+access, role-based Business Center controls. The gaps are not
+in the existence of controls but in their architecture: controls
+are actor-facing, not platform-decision-facing. The PDD case
+is a proof point that actor-facing governance alone is insufficient
+when the platform's own product decisions are the risk vector.
+
+> The question is not whether TikTok has governance.
+> It is whether TikTok's governance looks inward
+> as rigorously as it looks outward.
 
 ---
 
