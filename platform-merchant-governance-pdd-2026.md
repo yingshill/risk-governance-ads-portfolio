@@ -99,7 +99,80 @@ representatives and food safety directors fined an additional
 
 ## 2. Governance Failure Taxonomy
 
-<!-- PENDING -->
+### Scope Mapping
+
+Per [`actor-suspension-policy.md`](../frameworks/actor-suspension-policy.md) §1:
+
+| Scope                         | Definition                                                   | This Case                                                                                    |
+| ----------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| **Merchant/Seller Integrity** | Merchant onboarding, listing, fulfillment compliance         | Primary scope of PDD case — food merchant KYC, license verification, order fulfillment chain |
+| **Platform Integrity**        | Systemic: tools, APIs, infrastructure that enable violations | API-enabled 转单 system; audit obstruction; accountability chain                             |
+| **Advertiser Integrity**      | Ad account, creative, spend behavior compliance              | Out of scope for this case — translated in Section 7                                         |
+
+> Key boundary: most violations in this case sit in **Merchant Integrity**, but the **Platform Integrity** failures are scope-agnostic — they apply equally to merchant and advertiser governance. Section 7 translates across this boundary.
+
+---
+
+### Failure Taxonomy
+
+**Failure 1 — Onboarding KYC Gap**
+
+- **Scope:** Merchant Integrity
+- **What happened:** Platforms failed to verify food business licenses at merchant onboarding. Douyin alone allowed 454 non-compliant merchants to operate — including merchants with falsified licenses that passed surface-level review [^3]
+- **Governance layer:** Layer A failure (Onboarding stage) — the first lifecycle checkpoint did not exist or was not enforced
+- **Root cause:** Competitive pressure to onboard merchants faster than rivals. One platform employee stated to investigators: "If we screen too strictly, merchants will just go to other platforms." [^2]
+
+**Failure 2 — Platform-Enabled Circumvention (API Design)**
+
+- **Scope:** Platform Integrity
+- **What happened:** Platforms signed cooperation agreements with 转单 service providers and granted them API access — order query, logistics dispatch, batch data decryption — knowing or having reason to know this enabled prohibited order transfers [^2][^3]
+- **Governance layer:** Layer B failure (SOP Design) — the platform's own tooling operationalized the violation at scale
+- **Root cause:** API access was a deliberate product decision, not an oversight. The 转单 system processed over 3.6 million orders across 7 platforms [^2]
+
+**Failure 3 — Consumer Disclosure Gap**
+
+- **Scope:** Merchant Integrity · Platform Integrity
+- **What happened:** Consumers selected merchants based on brand reputation, hygiene records, and preparation style — then had their orders silently transferred to anonymous third-party producers bidding on price. No disclosure mechanism existed [^2]
+- **Governance layer:** Layer C failure (Action stage) — enforcement action was never triggered because the signal (order transfer) was invisible to the detection layer
+- **Root cause:** Detection design did not account for platform-authorized transfers as a risk signal
+
+**Failure 4 — Audit Defensibility Failure (Obstruction)**
+
+- **Scope:** Platform Integrity
+- **What happened:** PDD refused to provide materials, submitted false information, and used physical resistance against investigators. One investigator sustained a fractured finger and ankle injury [^2]
+- **Governance layer:** Layer B failure (Feedback Loop) — the postmortem mechanism (regulatory audit) was actively blocked
+- **Root cause:** No internal audit trail existed that could survive external scrutiny; obstruction was the only available response
+
+**Failure 5 — Accountability Chain Failure**
+
+- **Scope:** Platform Integrity
+- **What happened:** Governance failures persisted across multiple years without internal correction. No escalation to executive level occurred until external regulatory pressure forced it [^2]
+- **Governance layer:** Layer B failure (Policy) — no internal policy existed that would have flagged API-enabled 转单 as a governance risk requiring executive sign-off
+- **Root cause:** "Platform Integrity" was treated as a compliance checkbox, not a governance function with teeth
+
+---
+
+### Cross-Scope Insight
+
+Platform Integrity failures (Failures 2, 4, 5) are **scope-agnostic** — the same failure patterns appear in advertiser governance:
+
+- Granting API access that enables policy circumvention → **Advertiser: agency proxy re-entry**
+- No audit trail surviving external review → **Advertiser: evidence chain gaps**
+- No executive accountability mechanism → **Advertiser: governance without enforcement**
+
+Section 7 maps each failure to its TikTok Ads analog explicitly.
+
+---
+
+### References
+
+[^2]:
+    新京报 (Beijing News), "责任不能'转单' 安全不容'造假'", April 20, 2026.
+    https://www.bjnews.com.cn/detail/1776682567129945.html
+
+[^3]:
+    SAMR Administrative Penalty Decision 国市监处罚〔2026〕10号, April 17, 2026.
+    https://finance.sina.cn/2026-04-17/detail-inhuvera3179333.d.html
 
 ---
 
