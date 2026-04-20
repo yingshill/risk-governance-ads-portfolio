@@ -58,33 +58,40 @@ Everything in this repo operates within a three-layer framework. Understanding h
 
 ---
 
-## Repo Structure
+## Repo Contents
 
-```
-/
-├── README.md                          ← You are here
-│
-├── frameworks/
-│   ├── actor-suspension-policy.md    ← Evidence standards, consequence tiers, appeal rights
-│   ├── tiered-enforcement-sop.md     ← HITL → HOTL → HOOL confidence thresholds
-│   └── 7-step-process-engine.md      ← Operational sequence: detection → postmortem
-│
-├── cases/
-│   ├── ato-account-takeover.md       ← Account hijack: signals, evidence chain, playbook
-│   ├── impersonation.md              ← Brand/identity fraud: detection, tiers, SOP
-│   ├── bad-debt-overspend.md         ← Credit risk: scoring model, enforcement gates
-│   ├── policy-circumvention.md       ← Evasion patterns: edge case taxonomy, decision tree
-│   └── fraudulent-ad-content.md      ← Misleading ads: pre/post-serve review standards
-│
-├── metrics/
-│   ├── quality-audit-system.md       ← Safety Index: 500-case blind audit methodology
-│   ├── kpi-definitions.md            ← Catch rate, false action rate, MTTR, appeal overturn
-│   └── system-health-report.md       ← Monthly reporting template + slice analysis protocol
-│
-└── docs/
-    ├── governance-frameworks-map.md  ← Three Lines, NIST AI RMF, PDCA, ITIL — mapped to role
-    └── mandarin-glossary.md          ← 广告主诚信与行为治理术语表 (bilingual)
-```
+### `/frameworks` — The Rulebook
+
+| File                                                                  | What It Contains                                                                                             |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [`actor-suspension-policy.md`](frameworks/actor-suspension-policy.md) | Evidence tiers (1–3), consequence levels (L0–L5), appeal rights and standards, version control protocol      |
+| [`tiered-enforcement-sop.md`](frameworks/tiered-enforcement-sop.md)   | HITL / HOTL / HOOL confidence routing, 7-step execution sequence, canary rollout gates, P0 incident response |
+| [`7-step-process-engine.md`](frameworks/7-step-process-engine.md)     | Detection through postmortem — with the feedback loop that turns every failure into a governance upgrade     |
+
+### `/cases` — Applied Policy per Risk Type
+
+| File                                                         | Risk Type                                                                    |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| [`ato-account-takeover.md`](cases/ato-account-takeover.md)   | Unauthorized third-party control of a legitimate advertiser account          |
+| [`impersonation.md`](cases/impersonation.md)                 | False identity claim — brand, agency, or individual                          |
+| [`bad-debt-overspend.md`](cases/bad-debt-overspend.md)       | Ad spend exceeding recoverable credit exposure                               |
+| [`policy-circumvention.md`](cases/policy-circumvention.md)   | Intentional evasion — new accounts, proxies, cloaking, threshold structuring |
+| [`fraudulent-ad-content.md`](cases/fraudulent-ad-content.md) | Misleading claims, prohibited categories, deceptive landing pages            |
+
+### `/metrics` — How the System Is Measured
+
+| File                                                         | What It Contains                                                                    |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| [`quality-audit-system.md`](metrics/quality-audit-system.md) | 500-case blind audit protocol, stratified sample design, slice analysis methodology |
+| [`kpi-definitions.md`](metrics/kpi-definitions.md)           | Every metric with precise formula, data source, owner, target, and alert threshold  |
+| [`system-health-report.md`](metrics/system-health-report.md) | Monthly reporting template — executive summary through open items                   |
+
+### `/docs` — Reference
+
+| File                                                                | What It Contains                                                                |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [`governance-frameworks-map.md`](docs/governance-frameworks-map.md) | How Three Lines, NIST AI RMF, ISO 31000, PDCA, DMAIC, and ITIL map to this role |
+| [`mandarin-glossary.md`](docs/mandarin-glossary.md)                 | 广告主诚信与行为治理术语表 — bilingual EN/中文 terminology                      |
 
 ---
 
