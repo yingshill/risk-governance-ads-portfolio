@@ -122,7 +122,7 @@ LEVEL 5 — Permanent Ban + Entity Block
 | **Uphold**   | Evidence chain is valid                    | Confirm action; close appeal                                     |
 | **Escalate** | Novel edge case; policy ambiguity          | Route to Policy team for edge case review within 5 business days |
 
-**SLA:** Appeal decision within 5 business days (standard) / 2 business days (Level 4+).
+**SLA:** Appeal decision within 5 business days (standard) / 2 business days (Level 4+) — proposed values, verify against operational capacity.
 
 ---
 
