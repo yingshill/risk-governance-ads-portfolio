@@ -95,22 +95,18 @@ Everything in this repo operates within a three-layer framework. Understanding h
 
 ---
 
-## Quick Links
+## Build Status
 
-- [Actor Suspension Policy Framework](frameworks/actor-suspension-policy.md)
-- [5 Risk Case Playbooks](cases/)
-- [Quality Audit & Metrics System](metrics/quality-audit-system.md)
-- [Governance Frameworks Map](docs/governance-frameworks-map.md)
-- [Bilingual Glossary 双语术语表](docs/mandarin-glossary.md)
+See [`ROADMAP.md`](ROADMAP.md) for the full build plan. Current phase:
 
----
-
-## Core Governance Philosophy
-
-> _"I don't just manage the process — I am the process. I write the standards, run the audits, investigate the failures, and turn every finding into a durable governance upgrade."_
->
-> _我不只是管流程的人——我就是写标准、跑审计、查根因、把每个发现变成持久治理升级的那个人。_
+- [x] Phase 1a — Initial skeleton (14 files) committed
+- [x] Phase 1b — README render pass
+- [x] Phase 1c — `CONTRIBUTING.md` methodology explainer
+- [ ] Phase 2 — Human refinement: frameworks → cases → metrics → docs
+- [ ] Phase 3 — HTML portfolio page + GitHub Pages
 
 ---
 
 _April 2026 · [ROADMAP](ROADMAP.md) · [Methodology](CONTRIBUTING.md)_
+
+---
