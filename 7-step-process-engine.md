@@ -1,8 +1,9 @@
 # 7-Step Process Engine
-**The Operational Sequence — Detection through Postmortem**
 
 > This engine fires every time a risk event hits, regardless of lifecycle stage.  
 > It is a **reusable mechanism**, not a one-time checklist.
+
+> ⚠️ **Note:** Specific thresholds, SLAs, and trigger values in this document are proposed values — need verified against production standards before use.
 
 ---
 
@@ -31,6 +32,7 @@ This is why governance improves over time instead of stagnating.
 **What happens:** A risk signal surfaces from one or more sources.
 
 **Sources:**
+
 - ML classifier score (primary for scale)
 - Heuristic rules (spend velocity, login pattern, payment failure rate)
 - Cross-account linkage engine (device fingerprint, payment hash, email hash)
@@ -49,16 +51,19 @@ This is why governance improves over time instead of stagnating.
 **What happens:** Signal is classified, prioritized, and routed.
 
 **Classification dimensions:**
+
 1. Risk type: ATO / Impersonation / Bad Debt / Circumvention / Fraudulent Content
 2. Severity: P0 (active harm) / P1 (pattern risk) / P2 (low severity)
 3. Account tier: LTV bracket, account age, managed vs. self-serve
 
 **Routing output:**
+
 - Correct queue assignment
 - Correct reviewer tier (L1 / L2 / specialist)
 - SLA clock started
 
 **Common triage failures:**
+
 - Misclassification between risk types → wrong evidence standard applied
 - Severity underestimation → P0 treated as P1, harm continues
 - Queue overflow → SLA breach → harm window extends
@@ -70,15 +75,17 @@ This is why governance improves over time instead of stagnating.
 **What happens:** All available signals are pulled, classified by tier, and assembled into a case file.
 
 **Evidence tier framework:**
-See [Actor Suspension Policy §2](../frameworks/actor-suspension-policy.md) for full tier definitions.
+See [Actor Suspension Policy §2](actor-suspension-policy.md) for full tier definitions.
 
 **Assembly protocol:**
+
 1. Pull all Tier 1 signals first
 2. If Tier 1 present → proceed to Decision
 3. If no Tier 1 → pull Tier 2 signals; assess whether combination is sufficient
 4. If only Tier 3 → flag for monitoring; do not escalate to enforcement without Tier 2 corroboration
 
 **Linkage mapping:**
+
 - Cross-account connections are the most common evidence for circumvention cases
 - Linkage map must be reconstructable by an independent reviewer from raw data alone
 - Do not rely on "reviewer memory" — all linkages must be documented
@@ -90,6 +97,7 @@ See [Actor Suspension Policy §2](../frameworks/actor-suspension-policy.md) for 
 **What happens:** Evidence is weighed against policy; enforcement level is selected.
 
 **Decision tree structure:**
+
 ```
 Is Tier 1 evidence present?
   YES → Is this a first violation?
@@ -103,7 +111,11 @@ Is Tier 1 evidence present?
 ```
 
 **Human override triggers:**
+
 - Account LTV >$50K: mandatory L2 sign-off regardless of confidence
+
+> LTV threshold above is a proposed value — need verified against operational standards.
+
 - Novel edge case: mandatory Policy team consultation before action
 - Prior overturn on same account: mandatory L2 review
 
@@ -116,13 +128,17 @@ Is Tier 1 evidence present?
 **What happens:** Enforcement action is executed and advertiser is notified.
 
 **Execution checklist:**
+
 - [ ] Enforcement level matches decision (no silent downgrades)
 - [ ] Advertiser notification sent (in-product + email) within 1 hour
 - [ ] Notification includes: action taken, policy basis, appeal rights, SLA
 - [ ] Case file locked (read-only until appeal trigger or postmortem)
 - [ ] Action logged in enforcement system with case ID
 
+> Notification SLA (1 hour) is a proposed value — need verified against operational capacity.
+
 **Common execution failures:**
+
 - Notification not sent → advertiser discovers suspension via failed ad delivery
 - Wrong enforcement level executed (system config error)
 - Case file left editable → integrity risk for appeal review
@@ -137,12 +153,12 @@ Is Tier 1 evidence present?
 
 **Appeal outcomes and downstream routing:**
 
-| Outcome | What It Means | Downstream Action |
-|---|---|---|
+| Outcome      | What It Means                            | Downstream Action                                          |
+| ------------ | ---------------------------------------- | ---------------------------------------------------------- |
 | **Overturn** | Original evidence chain was insufficient | Restore account; log as false action; mandatory postmortem |
-| **Modify** | Evidence supports lower level | Downgrade action; log as partial false action |
-| **Uphold** | Evidence chain is valid | Confirm; close; no postmortem unless P0 |
-| **Escalate** | Policy gap or novel edge case | Route to Policy team; hold action pending clarification |
+| **Modify**   | Evidence supports lower level            | Downgrade action; log as partial false action              |
+| **Uphold**   | Evidence chain is valid                  | Confirm; close; no postmortem unless P0                    |
+| **Escalate** | Policy gap or novel edge case            | Route to Policy team; hold action pending clarification    |
 
 **Appeal data is the most valuable governance signal.** Overturn rate by risk type, reviewer, and region tells you exactly where your policy, training, or model has gaps.
 
@@ -153,12 +169,16 @@ Is Tier 1 evidence present?
 **What happens:** Outcomes are analyzed and turned into durable governance upgrades.
 
 **Triggers:**
+
 - All P0 incidents (mandatory, within 72 hours)
 - All false actions (mandatory, weekly batch)
 - Any appeal overturn rate spike >2% in a 7-day window
 - Novel edge case escalated from appeal
 
+> Postmortem triggers and thresholds above are proposed values — need verified against operational cadence.
+
 **Postmortem structure:**
+
 ```
 1. What happened (timeline of events)
 2. What the evidence chain contained (and what it was missing)
@@ -173,6 +193,7 @@ Is Tier 1 evidence present?
 ```
 
 **Durable fix routing:**
+
 - Policy gap → Policy update (XFN review if threshold change)
 - Evidence gap → SOP revision + ML feature request
 - Model error → Retrain signal package to R&D
@@ -207,9 +228,9 @@ Next postmortem reviews whether the fix held
 
 ## Framework Mapping
 
-| Industry Framework | How It Maps |
-|---|---|
-| **ITIL Incident Management** | Steps 1–7 are nearly 1:1. Key additions: explicit evidence chain step (Step 3) and feedback loop postmortem (Step 7) |
-| **NIST CSF** | Detect (Step 1) → Respond (Steps 2–5) → Recover (Step 6) → Improve (Step 7) |
-| **PDCA** | Plan (policy/SOP) → Do (Steps 1–5) → Check (Step 6 appeal data) → Act (Step 7 postmortem) |
-| **Six Sigma DMAIC** | Postmortem IS a DMAIC cycle: Define (root cause) → Measure (metrics) → Analyze (slice) → Improve (fix) → Control (verify) |
+| Industry Framework           | How It Maps                                                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **ITIL Incident Management** | Steps 1–7 are nearly 1:1. Key additions: explicit evidence chain step (Step 3) and feedback loop postmortem (Step 7)      |
+| **NIST CSF**                 | Detect (Step 1) → Respond (Steps 2–5) → Recover (Step 6) → Improve (Step 7)                                               |
+| **PDCA**                     | Plan (policy/SOP) → Do (Steps 1–5) → Check (Step 6 appeal data) → Act (Step 7 postmortem)                                 |
+| **Six Sigma DMAIC**          | Postmortem IS a DMAIC cycle: Define (root cause) → Measure (metrics) → Analyze (slice) → Improve (fix) → Control (verify) |
