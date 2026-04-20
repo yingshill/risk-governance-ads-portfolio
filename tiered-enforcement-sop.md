@@ -1,9 +1,10 @@
 # Tiered Enforcement SOP
-**Pillar 2 — Evidence-based Governance & Automation**
 
 > **Purpose:** Operationalize the Actor Suspension Policy into a repeatable, auditable enforcement workflow  
 > **Audience:** Account Suspension Operations · Appeals · ML/Product (for system design)  
 > **Human oversight model:** HITL → HOTL → HOOL gradient based on ML confidence score
+
+> ⚠️ **Note:** Confidence thresholds, SLAs, and numerical values in this document are proposed values — need verified against production standards before use.
 
 ---
 
@@ -25,9 +26,10 @@ ML Confidence Score    Routing               Human Role
 ```
 
 **Design rationale:**
+
 - Below 0.75: Model uncertainty is too high. False action cost (legitimate advertiser suspended) exceeds automation efficiency gain.
 - 0.75–0.98: Model is directionally right but edge cases exist. Human checkpoint catches the long tail.
-- Above 0.98: Historical false action rate at this threshold is <0.3%. Automation is warranted; batch audit provides assurance.
+- Above 0.98: Model confidence is high enough that automation is warranted; batch audit provides assurance. Exact false action rate at this threshold requires empirical validation.
 
 **Override protocol:** Any HOTL reviewer may override the system recommendation. Override reason must be logged and reviewed in weekly calibration.
 
@@ -127,6 +129,7 @@ T+10d   Fix deployed through canary gate
 ```
 
 **Communication protocol:**
+
 - Internal: Ops lead → Policy lead → Business Integrity VP (P0 only)
 - External (advertiser): Standard suspension notice + dedicated appeals contact for P0 cases
 - Regulatory: Legal notified within 24hr if regulatory exposure identified
@@ -136,11 +139,13 @@ T+10d   Fix deployed through canary gate
 ## Calibration & Reviewer Alignment
 
 **Weekly calibration session:**
+
 - Sample: 20 cases per session — mix of overturns, edge cases, and random sample
 - Format: Blind review → compare decisions → discuss divergence
 - Output: Policy clarification logged if >30% reviewer disagreement on a case type
 
 **Monthly System Health Report inputs:**
+
 - False action rate by risk type, reviewer, region
 - Appeal overturn rate by enforcement level
 - HITL/HOTL/HOOL distribution (automation coverage trend)
