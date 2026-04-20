@@ -60,10 +60,14 @@ Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts
 
 #### 2B — Cases (refine after frameworks — each case references the policy)
 
-- [ ] `cases/ato-account-takeover.md`
-  - Validate signal taxonomy against real ATO patterns you've seen or researched
-  - Refine the advertiser communication templates (tone, bilingual accuracy)
-  - Add anything the postmortem questions section is missing
+- [x] `cases/ato-account-takeover.md` ✅ _April 2026_
+  - Added top-level verification disclaimer
+  - Flagged velocity threshold as proposed value
+  - Removed fabricated σ value from Tier 2 signals
+  - Flagged decision framework SLAs as proposed values
+  - Added legal + native speaker review warning to communication templates
+  - Added "Proposed:" prefix to all metric targets
+  - Flagged ML confidence score as "where available"
 
 - [ ] `cases/impersonation.md`
   - Review the four impersonation types — any missing for TikTok Ads specifically?
