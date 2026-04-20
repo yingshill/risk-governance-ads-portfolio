@@ -951,4 +951,42 @@ when the platform's own product decisions are the risk vector.
 
 ---
 
-_See also: [Policy Circumvention Playbook](policy-circumvention.md) · [Actor Suspension Policy](../frameworks/actor-suspension-policy.md) · [7-Step Process Engine](../frameworks/7-step-process-engine.md)_
+## References
+
+[^1]:
+    Tencent News / 金通社PLUS, "拼多多暴力抗法被罚15亿，联合创始人赵佳臻被罚693万",
+    April 18, 2026.
+    https://news.qq.com/rain/a/20260418A053II00
+
+[^2]:
+    新京报 (Beijing News), "责任不能'转单' 安全不容'造假'——市场监管总局重拳整治
+    '幽灵外卖'乱象纪实", April 20, 2026.
+    https://www.bjnews.com.cn/detail/1776682567129945.html
+
+[^3]:
+    SAMR Administrative Penalty Decision 国市监处罚〔2026〕10号,
+    北京抖音科技有限公司, April 17, 2026. Via Sina Finance:
+    https://finance.sina.cn/2026-04-17/detail-inhuvera3179333.d.html
+
+[^4]:
+    TikTok Shop Seller Enforcement Policy, accessed April 2026.
+    https://seller-us.tiktok.com/university/essay?knowledge_id=2380042836166443
+
+[^5]:
+    TikTok Seller Terms of Service (US), accessed April 2026.
+    https://seller-us.tiktok.com/university/essay?knowledge_id=1331308753078058
+
+[^6]:
+    TikTok Business Center — About Business Center Roles and Permissions,
+    last updated August 2025.
+    https://ads.tiktok.com/help/article/about-business-center-roles-and-permissions
+
+[^7]:
+    TikTok API for Business Portal, accessed April 2026.
+    https://business-api.tiktok.com/portal
+
+---
+
+_See also: [Policy Circumvention Playbook](policy-circumvention.md) ·
+[Actor Suspension Policy](../frameworks/actor-suspension-policy.md) ·
+[7-Step Process Engine](../frameworks/7-step-process-engine.md)_
