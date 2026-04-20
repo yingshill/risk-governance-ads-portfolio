@@ -670,7 +670,106 @@ The April 2026 enforcement action suggests that is changing.
 
 ## 6. Regulatory & Accountability Dimension
 
-<!-- PENDING -->
+### The "One Store, One Penalty" Precedent
+
+Prior to this case, platform enforcement in China typically treated
+systemic failures as a single violation — capped at a statutory
+maximum regardless of the number of affected merchants. The April
+2026 action established a different logic: each merchant for whom
+the platform failed its verification obligation constitutes an
+independent violation, penalized independently [^2].
+
+The practical effect: a statutory cap of ¥200K per violation
+becomes ¥200K × number of non-compliant merchants. For PDD,
+with 9,463 non-compliant cake merchants, this logic produced
+a ¥1.52 billion penalty. For Douyin, with 454 merchants,
+it produced ¥45.4M in KYC-related fines alone [^2][^3].
+
+This is not a new legal theory — it mirrors enforcement logic
+already applied in Chinese real estate regulation ("one unit,
+one penalty" for pricing violations) [^2]. Its application to
+platform merchant governance is new, and its implications are
+significant: **platform liability now scales with platform size.**
+The more merchants a platform hosts without adequate verification,
+the larger the potential penalty exposure.
+
+---
+
+### Personal Liability — A New Accountability Layer
+
+The simultaneous fine of PDD co-CEO Zhao Jiazhen (¥6.93M) and
+personal fines on legal representatives and food safety directors
+across all 7 platforms (¥19.69M combined) marks the first
+application of personal executive accountability to platform
+merchant governance failures in China [^2].
+
+The governance implication is structural: when only the platform
+entity is fined, executives can treat compliance as a cost-benefit
+calculation — fine risk versus enforcement cost. When executives
+are personally liable, the calculus changes. Governance failures
+become personal financial exposure for the decision-makers who
+authorized or failed to prevent them.
+
+This mirrors accountability frameworks already established in
+financial services regulation in other jurisdictions —
+though the application to e-commerce platform governance
+is a Chinese regulatory first. `[VERIFY: confirm "first" claim
+against prior SAMR enforcement history]`
+
+---
+
+### Multi-Platform Enforcement — Industry Standard Signal
+
+Seven platforms penalized simultaneously sends a different signal
+than a single enforcement action. It establishes:
+
+- A **baseline expectation** — KYC verification and API access
+  governance are not optional, regardless of platform size
+- A **competitive neutrality argument** — no platform can claim
+  competitive disadvantage from compliance if all are held to
+  the same standard simultaneously
+- An **audit trigger** — any platform not named in this action
+  that operates similar merchant onboarding or API authorization
+  models now faces elevated scrutiny
+
+The platform employee quote captured by investigators is
+instructive: _"If we screen too strictly, merchants will just
+go to other platforms."_ [^2] Multi-platform enforcement
+directly addresses this logic — if all platforms screen to
+the same standard, the race to the bottom ends.
+
+---
+
+### Regulatory Trajectory — What This Signals for Platform Governance
+
+Three signals for governance teams to track:
+
+**1. Platform liability scales with platform decisions**
+The "one store, one penalty" logic can extend beyond food delivery
+to any context where a platform makes authorization decisions
+that enable harm at scale — including advertiser onboarding,
+API access grants to ad tech partners, and automated enforcement
+systems that produce systematic false actions.
+
+**2. Personal accountability is entering platform governance**
+The executive fine precedent will likely influence how platform
+governance functions position themselves internally. Second-line
+governance teams now have a stronger argument for authority
+over first-line product decisions — the personal liability
+risk makes "governance had no seat at the table" a harder
+position for executives to accept.
+
+**3. Audit defensibility is no longer optional**
+PDD's obstruction — and the investigators' success in
+penetrating the data architecture anyway — signals that
+regulators are developing the capability to reconstruct
+evidence chains even when platforms resist. The practical
+implication: obstruction increases penalty exposure without
+preventing evidence recovery. Audit-defensible internal
+records are now a risk management tool, not just a
+governance best practice.
+
+---
 
 ## 7. Relevance to TikTok Ads Context
 
