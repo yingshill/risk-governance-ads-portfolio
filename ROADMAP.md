@@ -38,11 +38,13 @@ Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts
 
 #### 2A — Frameworks (refine first — cases and metrics cite these)
 
-- [ ] `frameworks/actor-suspension-policy.md`
-  - Verify evidence tier thresholds are realistic for TikTok Ads context
-  - Check consequence levels (L0–L5) against what you know of TikTok's actual enforcement tiers
-  - Add any CN-side advertiser-specific nuances (e.g., how KYC works for cross-border advertisers)
-  - Confirm appeal SLAs match TikTok's actual timelines if known
+- [x] `frameworks/actor-suspension-policy.md` ✅ _April 2026_
+  - Removed Pillar subtitle — identity-neutral
+  - Added top-level verification disclaimer
+  - Added signal validation note to risk taxonomy table
+  - Softened confidence score requirement — ML not always present
+  - Added threshold disclaimer to consequence framework
+  - Flagged appeal SLA as proposed values
 
 - [ ] `frameworks/tiered-enforcement-sop.md`
   - Validate HITL/HOTL/HOOL confidence thresholds (0.75 / 0.98) — are these defensible?
