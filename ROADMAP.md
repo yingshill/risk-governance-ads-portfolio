@@ -145,13 +145,15 @@ Repo is locked. Build the public-facing layer.
 
 _Record any non-obvious choices made during the build so future sessions have context._
 
-| Date     | Decision                                                                        | Rationale                                                                                    |
-| -------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Apr 2026 | Build order: README → CONTRIBUTING → frameworks → cases → metrics → docs → HTML | Dependency chain — downstream files reference upstream ones                                  |
-| Apr 2026 | 14 files in one initial commit                                                  | Establish full skeleton first; refine in subsequent passes rather than building file-by-file |
-| Apr 2026 | Confidence thresholds: 0.75 / 0.98 for HITL/HOTL/HOOL                           | Illustrative; flagged for human validation in Phase 2                                        |
-| Apr 2026 | 500-case blind audit as the quality anchor metric                               | Mirrors Moody's Safety Index methodology; scales to TikTok context                           |
+| Apr 2026 | Build order: README → CONTRIBUTING → frameworks → cases → metrics → docs → HTML | Dependency chain — downstream files reference upstream ones |
+| Apr 2026 | 14 files in one initial commit | Establish full skeleton first; refine in subsequent passes rather than building file-by-file |
+| Apr 2026 | Confidence thresholds: 0.75 / 0.98 for HITL/HOTL/HOOL | Illustrative; flagged for human validation in Phase 2 |
+| Apr 2026 | 500-case blind audit as the quality anchor metric | Mirrors Moody's Safety Index methodology; scales to TikTok context |
+| Apr 2026 | Mermaid diagram over ASCII box for Three-Layer model | ASCII box-drawing characters broke in GitHub renderer |
+| Apr 2026 | Repo is identity-neutral — no personal names anywhere | Keeps the portfolio general and reusable beyond this interview |
+| Apr 2026 | Tone standard: straightforward, humble, accurate, curious, practical | Avoid overclaiming; this is a demo of thinking, not a production system |
+| Apr 2026 | Change approval protocol: propose → approve → edit → commit message → approve | Every change requires human approval before touching files |
 
 ---
 
-_Last updated: April 2026 · Next action: README render pass (Phase 1)_
+_April 2026 · [README](README.md) · [Methodology](CONTRIBUTING.md)_
