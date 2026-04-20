@@ -1,9 +1,10 @@
 # Actor Suspension Policy Framework
-**Pillar 1 — Risk Policy Architecture & Standards**
 
 > **Scope:** Advertiser/actor-level enforcement on TikTok Ads  
 > **Applies to:** Account Suspension Operations · Appeals · Governance Review  
 > **Version control:** Major updates require XFN sign-off (Legal, Ops, ML); minor clarifications logged inline
+
+> ⚠️ **Note:** Thresholds, SLAs, and numerical values in this document are proposed values — need verified against production standards before use.
 
 ---
 
@@ -15,13 +16,13 @@
 
 **Actor risk taxonomy:**
 
-| Risk Type | Definition | Primary Signal |
-|---|---|---|
-| **ATO — Account Takeover** | Unauthorized access to a legitimate advertiser account | Login anomaly + spend spike + new payment method |
-| **Impersonation** | False identity claim — brand, agency, or individual | Entity mismatch vs. KYC records or public registry |
-| **Bad Debt / Overspend** | Ad spend exceeds recoverable credit exposure | Payment failure + spend velocity + account age |
-| **Policy Circumvention** | Intentional evasion of enforcement — new accounts, cloaking, referral chains | Multi-account linkage + prior violation history |
-| **Fraudulent Ad Content** | Misleading claims, prohibited categories, deceptive landing pages | Pre/post-serve content flags + landing page mismatch |
+| Risk Type                  | Definition                                                                   | Primary Signal                                       |
+| -------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **ATO — Account Takeover** | Unauthorized access to a legitimate advertiser account                       | Login anomaly + spend spike + new payment method     |
+| **Impersonation**          | False identity claim — brand, agency, or individual                          | Entity mismatch vs. KYC records or public registry   |
+| **Bad Debt / Overspend**   | Ad spend exceeds recoverable credit exposure                                 | Payment failure + spend velocity + account age       |
+| **Policy Circumvention**   | Intentional evasion of enforcement — new accounts, cloaking, referral chains | Multi-account linkage + prior violation history      |
+| **Fraudulent Ad Content**  | Misleading claims, prohibited categories, deceptive landing pages            | Pre/post-serve content flags + landing page mismatch |
 
 ---
 
@@ -104,16 +105,16 @@ LEVEL 5 — Permanent Ban + Entity Block
 
 **Appeal eligibility:** All Level 2+ actions are appealable. Level 1 warnings are not.
 
-**Review standard:** Appeal reviewer must assess whether the original evidence chain meets Tier 1/2 standards *without reference to the original reviewer's rationale*. Fresh review only.
+**Review standard:** Appeal reviewer must assess whether the original evidence chain meets Tier 1/2 standards _without reference to the original reviewer's rationale_. Fresh review only.
 
 **Outcome options:**
 
-| Outcome | Condition | Action |
-|---|---|---|
-| **Overturn** | Evidence chain does not meet tier standard | Restore account; log as false action; feed to postmortem |
-| **Modify** | Evidence supports lower-level consequence | Downgrade action; notify advertiser |
-| **Uphold** | Evidence chain is valid | Confirm action; close appeal |
-| **Escalate** | Novel edge case; policy ambiguity | Route to Policy team for edge case review within 5 business days |
+| Outcome      | Condition                                  | Action                                                           |
+| ------------ | ------------------------------------------ | ---------------------------------------------------------------- |
+| **Overturn** | Evidence chain does not meet tier standard | Restore account; log as false action; feed to postmortem         |
+| **Modify**   | Evidence supports lower-level consequence  | Downgrade action; notify advertiser                              |
+| **Uphold**   | Evidence chain is valid                    | Confirm action; close appeal                                     |
+| **Escalate** | Novel edge case; policy ambiguity          | Route to Policy team for edge case review within 5 business days |
 
 **SLA:** Appeal decision within 5 business days (standard) / 2 business days (Level 4+).
 
@@ -121,12 +122,13 @@ LEVEL 5 — Permanent Ban + Entity Block
 
 ## 5. Policy Version Control
 
-| Version | Change Summary | Effective Date | Sign-off |
-|---|---|---|---|
-| v1.0 | Initial framework | — | — |
-| — | *Updates logged here as policy evolves* | — | — |
+| Version | Change Summary                          | Effective Date | Sign-off |
+| ------- | --------------------------------------- | -------------- | -------- |
+| v1.0    | Initial framework                       | —              | —        |
+| —       | _Updates logged here as policy evolves_ | —              | —        |
 
 **Change protocol:**
+
 - **Minor clarifications** (no enforcement change): Policy owner updates inline, logs in changelog
 - **Threshold changes** (enforcement behavior affected): XFN review — Legal, Ops Lead, ML — before publishing
 - **New risk type added:** Full policy review cycle; pilot on 5% traffic before GA
