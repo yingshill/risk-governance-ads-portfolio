@@ -52,10 +52,11 @@ Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts
   - Added anything the canary rollout section is missing from Flip experience
   - Checked the calibration session design against what actually works
 
-- [ ] `frameworks/7-step-process-engine.md`
-  - This is the most conceptual file — review for any gaps vs. how you'd actually run this
-  - Confirm the feedback loop description matches how Moody's postmortem → retrain actually worked
-  - Add concrete examples to any step that feels abstract
+- [x] `frameworks/7-step-process-engine.md` ✅ _April 2026_
+  - Removed subtitle — identity-neutral
+  - Added top-level verification disclaimer
+  - Fixed broken relative link to actor-suspension-policy.md
+  - Flagged all proposed values: LTV threshold, notification SLA, postmortem triggers
 
 #### 2B — Cases (refine after frameworks — each case references the policy)
 
