@@ -87,6 +87,8 @@ Step 7 — POSTMORTEM
           Issue: Policy update · SOP revision · Model retrain signal · Training case
 ```
 
+> SLAs, reviewer tiers, and LTV thresholds above are proposed values — need verified against operational capacity and team structure.
+
 ---
 
 ## Rollout Gates — Canary to GA
@@ -111,6 +113,8 @@ Stage 3 — GA (100% traffic)
   Monitoring: First 30 days at daily cadence; then weekly
 ```
 
+> Traffic percentages, durations, and pass criteria above are proposed values — need verified against platform scale and ops capacity.
+
 ---
 
 ## Incident Response — P0 Protocol
@@ -134,6 +138,8 @@ T+10d   Fix deployed through canary gate
 - External (advertiser): Standard suspension notice + dedicated appeals contact for P0 cases
 - Regulatory: Legal notified within 24hr if regulatory exposure identified
 
+> P0 timeline (T+30m through T+10d) and communication protocol above are proposed values — need verified against actual incident response capacity and legal requirements.
+
 ---
 
 ## Calibration & Reviewer Alignment
@@ -150,6 +156,8 @@ T+10d   Fix deployed through canary gate
 - Appeal overturn rate by enforcement level
 - HITL/HOTL/HOOL distribution (automation coverage trend)
 - P0 incident count and MTTR
+
+> Sample size and disagreement threshold above are proposed values — need verified against team size and operational cadence.
 
 ---
 
