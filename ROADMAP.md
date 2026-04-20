@@ -117,6 +117,19 @@ Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts
   - Check that the "common CN-side advertiser communications" section uses natural business Mandarin, not translated English
   - Add any terms that came up in R1 or R2 conversations
 
+#### 2E — Case Study Verification (PDD 2026)
+
+- [ ] `cases/platform-merchant-governance-pdd-2026.md`
+  - Verify Section 5 Industry Context claims against primary sources:
+    - [ ] OCC Third-Party Risk Management guidance — current version
+    - [ ] MAS Guidelines on Outsourcing — verify applicability to API access
+    - [ ] SOX Section 302/404 — verify scope re: operational decisions
+    - [ ] SM&CR (UK FCA) — verify personal accountability scope
+    - [ ] MAS Guidelines on Individual Accountability — verify current version
+  - Replace `[VERIFY]` placeholders with confirmed citations or remove if unverifiable
+  - Native speaker review of all Chinese regulatory citations
+  - Confirm Douyin penalty decision numbers match primary source (国市监处罚〔2026〕10号)
+
 ---
 
 ### Phase 3 — Deployment ✦ Backlog
