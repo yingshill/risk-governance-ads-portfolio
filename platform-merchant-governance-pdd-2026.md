@@ -787,7 +787,22 @@ documentation to assess where controls exist and where gaps remain.
 
 ### What TikTok Has — Confirmed Controls
 
-**Tiered enforcement with point-based escalation**
+**Advertiser Account Policy — actor-facing prohibited behaviors**
+TikTok explicitly prohibits "platform manipulation" (bypassing
+moderation, disrupting ad operations), "deceptive identity"
+(falsified documents, impersonation, abusing Business Center
+features to misrepresent affiliations), and "misleading business
+approach." Enforcement can include suspension from all ByteDance
+platforms. [^4]
+
+**Advertising Policies — content-level prohibited categories**
+Prohibited categories include "Deceptive practices," "Misleading
+and false content," and "Financial Services" — covering the
+advertiser-side analog of fraudulent ad content governance.
+Category-specific certificate requirements apply for restricted
+verticals. [^5]
+
+**Tiered enforcement with AHR point system (TikTok Shop)**
 TikTok Shop operates an Account Health Rating (AHR) system with
 defined escalation thresholds — enforcement actions trigger at
 150, 100, 50, and 0 AHR points. Sellers can appeal within 30 days,
@@ -808,16 +823,13 @@ Standard members can only access accounts explicitly assigned
 to them. [^6]
 
 **API access requires application review**
-Unaudited apps operate in a restricted environment — user caps,
-limited posting modes. Full API access requires passing a review
-process. `[VERIFY: confirm DSPR review requirements against
-TikTok Shop Partner Center documentation]` [^7]
+Developer/API Content Sharing Guidelines [^10] — Unaudited API clients operate in restricted mode (user cap, private-only posting).
+To lift restrictions, an audit is required. This is the closest thing TikTok has to a pre-authorization review gate — but it applies to content posting, not ad spend or Business Center access.
 
 **Data sharing obligations on partners**
 TikTok's Data Sharing Agreement requires partners to immediately
 inform TikTok if they can no longer meet security obligations,
 and grants TikTok the right to stop unauthorized data use.
-`[VERIFY: confirm current Data Sharing Agreement terms]`
 
 ---
 
@@ -984,6 +996,20 @@ when the platform's own product decisions are the risk vector.
 [^7]:
     TikTok API for Business Portal, accessed April 2026.
     https://business-api.tiktok.com/portal
+
+[^8]:
+    TikTok Business Center — About Business Center Roles and Permissions,
+    last updated August 2025.
+    https://ads.tiktok.com/help/article/about-business-center-roles-and-permissions
+
+[^9]:
+    TikTok Developer Content Sharing Guidelines — Direct Post API,
+    accessed April 2026.
+    https://developers.tiktok.com/doc/content-sharing-guidelines
+
+[^10]:
+    TikTok Developer Terms of Service (referenced; robots.txt restricted).
+    https://www.tiktok.com/legal/page/global/tik-tok-developer-terms-of-service/en
 
 ---
 
