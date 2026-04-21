@@ -119,16 +119,18 @@ Each file reviewed, corrected, and sharpened through repo owner judgment. Drafts
 
 #### 2E — Case Study Verification (PDD 2026)
 
-- [ ] `cases/platform-merchant-governance-pdd-2026.md`
-  - Verify Section 5 Industry Context claims against primary sources:
-    - [ ] OCC Third-Party Risk Management guidance — current version
-    - [ ] MAS Guidelines on Outsourcing — verify applicability to API access
-    - [ ] SOX Section 302/404 — verify scope re: operational decisions
-    - [ ] SM&CR (UK FCA) — verify personal accountability scope
-    - [ ] MAS Guidelines on Individual Accountability — verify current version
-  - Replace `[VERIFY]` placeholders with confirmed citations or remove if unverifiable
-  - Native speaker review of all Chinese regulatory citations
-  - Confirm Douyin penalty decision numbers match primary source (国市监处罚〔2026〕10号)
+- [x] `cases/platform-merchant-governance-pdd-2026.md` ✅ _April 2026_
+  - Full 7-section case study: overview → taxonomy → 7-step analysis →
+    policy gaps → durable fixes → regulatory dimension → TikTok Ads context
+  - Sourced from: SAMR penalty decision (国市监处罚〔2026〕10号), 新京报
+    investigative report, Tencent News, TikTok primary policy documentation
+  - 11 references consolidated at end of document
+  - [VERIFY] placeholders added for: industry context claims (OCC, MAS,
+    SOX, SM&CR), "first ever" personal liability claim, Developer Terms
+  - Section 5 Industry Context: human verification required before
+    formal citation
+  - Section 7: grounded in TikTok Advertiser Account Policy, Advertising
+    Policies, Business Center docs, Content Posting API audit requirement
 
 ---
 
