@@ -66,13 +66,14 @@ graph TD
 
 ### `/cases` — Applied Policy per Risk Type
 
-| File                                                         | Risk Type                                                                    |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| [`ato-account-takeover.md`](cases/ato-account-takeover.md)   | Unauthorized third-party control of a legitimate advertiser account          |
-| [`impersonation.md`](cases/impersonation.md)                 | False identity claim — brand, agency, or individual                          |
-| [`bad-debt-overspend.md`](cases/bad-debt-overspend.md)       | Ad spend exceeding recoverable credit exposure                               |
-| [`policy-circumvention.md`](cases/policy-circumvention.md)   | Intentional evasion — new accounts, proxies, cloaking, threshold structuring |
-| [`fraudulent-ad-content.md`](cases/fraudulent-ad-content.md) | Misleading claims, prohibited categories, deceptive landing pages            |
+| File                                                                                         | Risk Type                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`ato-account-takeover.md`](cases/ato-account-takeover.md)                                   | Unauthorized third-party control of a legitimate advertiser account                                                                                                                                    |
+| [`impersonation.md`](cases/impersonation.md)                                                 | False identity claim — brand, agency, or individual                                                                                                                                                    |
+| [`bad-debt-overspend.md`](cases/bad-debt-overspend.md)                                       | Ad spend exceeding recoverable credit exposure                                                                                                                                                         |
+| [`policy-circumvention.md`](cases/policy-circumvention.md)                                   | Intentional evasion — new accounts, proxies, cloaking, threshold structuring                                                                                                                           |
+| [`fraudulent-ad-content.md`](cases/fraudulent-ad-content.md)                                 | Misleading claims, prohibited categories, deceptive landing pages                                                                                                                                      |
+| [`platform-merchant-governance-pdd-2026.md`](cases/platform-merchant-governance-pdd-2026.md) | Case study — PDD "Ghost Delivery" enforcement action (April 2026, ¥3.6B fine): governance failure taxonomy, 7-step engine analysis, policy gaps, and translation to TikTok Ads advertiser risk surface |
 
 ### `/metrics` — How the System Is Measured
 
